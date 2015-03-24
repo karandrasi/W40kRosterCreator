@@ -37,6 +37,8 @@ public class MyActivity extends Activity {
             "Tyranids"
     };
 
+    private CodexXMLParser parser = new CodexXMLParser();
+
     String [] points = {"500", "750", "1000", "1250", "1500", "1850", "2000", "2500"};
 
     private void MakeToast(final String message) {
@@ -66,8 +68,9 @@ public class MyActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 try {
+
                     final InputStream is = getResources().getAssets().open("SpaceMarines.xml");
-                    W40kCodex codex = new W40kCodex(is);
+                    W40kCodex codex = parser.LoadCodex(is);
                     UnitSelection selection = new UnitSelection(1000);
                     selection.setMaxHq(2);
                     selection.setMinHq(1);

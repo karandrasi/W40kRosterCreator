@@ -1,9 +1,12 @@
 package com.example.wh40k;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Urgak_000 on 21.03.2015.
  */
-public class W40kModel {
+public class W40kModel implements Parcelable {
     private String name;
     private Integer weaponSkill;
     private Integer ballisticSkill;
@@ -22,6 +25,33 @@ public class W40kModel {
     private Integer sideArmour;
     private Integer rearArmour;
     private Integer hullPoints;
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeInt((weaponSkill == null)?0:weaponSkill);
+        parcel.writeInt((ballisticSkill == null)?0:ballisticSkill);
+        parcel.writeInt((strength == null)?0:strength);
+        parcel.writeInt((toughness == null)?0:toughness);
+        parcel.writeInt((wounds == null)?0:wounds);
+        parcel.writeInt((initiative == null)?0:initiative);
+        parcel.writeInt((attacks == null)?0:attacks);
+        parcel.writeInt((leadership == null)?0:leadership);
+        parcel.writeInt((save == null)?0:save);
+        parcel.writeInt((invulSave == null)?0:invulSave);
+        parcel.writeValue(type);
+        parcel.writeInt(defaultCount);
+        parcel.writeInt(maxCount);
+        parcel.writeInt((frontArmour == null)?0:frontArmour);
+        parcel.writeInt((sideArmour == null)?0:sideArmour);
+        parcel.writeInt((rearArmour == null)?0:rearArmour);
+        parcel.writeInt((hullPoints == null)?0:hullPoints);
+    }
 
     public String getName() {
         return name;
@@ -166,4 +196,35 @@ public class W40kModel {
     public void setHullPoints(Integer hullPoints) {
         this.hullPoints = hullPoints;
     }
+
+    public static final Parcelable.Creator<W40kModel> CREATOR = new Parcelable.Creator<W40kModel>(){
+        @Override
+        public W40kModel createFromParcel(Parcel parcel) {
+            W40kModel model = new W40kModel();
+            model.name = parcel.readString();
+            model.weaponSkill = parcel.readInt();
+            model.ballisticSkill = parcel.readInt();
+            model.strength = parcel.readInt();
+            model.toughness = parcel.readInt();
+            model.wounds = parcel.readInt();
+            model.initiative = parcel.readInt();
+            model.attacks = parcel.readInt();
+            model.leadership = parcel.readInt();
+            model.save = parcel.readInt();
+            model.invulSave = parcel.readInt();
+            model.type = (W40kModelType)parcel.readValue(W40kModelType.class.getClassLoader());
+            model.defaultCount = parcel.readInt();
+            model.maxCount = parcel.readInt();
+            model.frontArmour = parcel.readInt();
+            model.sideArmour = parcel.readInt();
+            model.rearArmour = parcel.readInt();
+            model.hullPoints = parcel.readInt();
+            return model;
+        }
+
+        @Override
+        public W40kModel[] newArray(int i) {
+            return new W40kModel[i];
+        }
+    };
 }

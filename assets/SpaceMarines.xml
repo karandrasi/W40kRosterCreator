@@ -1,5 +1,7 @@
 <units>
 	<unit slot="hq" name="Marneus Calgar" cost="275" value="150" unique="true">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99800101042_CalgarLordofMacraggeNEW01.jpg</image>
+		<description>Marneus Augustus Calgar is the current Chapter Master of the Ultramarines Space Marines Chapter and the Lord of Macragge, capital world of the Realm of Ultramar in the Eastern Fringes of the galaxy.</description>
 		<model name="Marneus Calgar" WS="6" BS="5" S="4" T="4" W="4" I="5" A="4" Ld="10" Sv="2" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1">
 			<option name="Armour of Antilochus" cost="10" value="0"/>

@@ -20,7 +20,9 @@ public class W40kUnit implements Cloneable, Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeInt(basicCost);
+        parcel.writeSerializable(slot);
         parcel.writeList(options);
+        parcel.writeList(models);
     }
 
     @Override
@@ -143,6 +145,26 @@ public class W40kUnit implements Cloneable, Parcelable {
         return (double)getValue() / ((getCost() == 0)? 0.1 : (double)getCost());
     }
 
+    public String toString() {
+        return name + ": " + getCost().toString() + " pts.";
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public static enum W40kUnitSlot {
         HQ,
         TROOPS,
@@ -163,6 +185,8 @@ public class W40kUnit implements Cloneable, Parcelable {
     private List<W40kOptionSlot> optionSlots = new ArrayList<W40kOptionSlot>();
     private List<W40kCombo> combos = new ArrayList<W40kCombo>();
     private List<W40kOption> options = new ArrayList<W40kOption>();
+    private String imagePath;
+    private String description;
 
     public static final Parcelable.Creator<W40kUnit> CREATOR = new Parcelable.Creator<W40kUnit>(){
         @Override
@@ -170,7 +194,9 @@ public class W40kUnit implements Cloneable, Parcelable {
             W40kUnit unit = new W40kUnit();
             unit.name = parcel.readString();
             unit.basicCost = parcel.readInt();
+            unit.slot = (W40kUnitSlot)parcel.readSerializable();
             parcel.readList(unit.options, W40kOption.class.getClassLoader());
+            parcel.readList(unit.models, W40kModel.class.getClassLoader());
             return unit;
         }
 
@@ -179,8 +205,4 @@ public class W40kUnit implements Cloneable, Parcelable {
             return new W40kUnit[i];
         }
     };
-
-    public String toString() {
-        return name + ": " + getCost().toString() + " pts.";
-    }
 }
