@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.SimpleCursorAdapter;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Urgak_000 on 23.03.2015.
@@ -20,13 +23,16 @@ public class Roster extends Activity {
         setContentView(R.layout.roster);
 
         List<W40kUnit> roster = getIntent().getParcelableArrayListExtra("roster");
-        List<String> strings = new ArrayList<String>();
+        List<Map<String, String>> items = new ArrayList<Map<String, String>>();
         for(W40kUnit unit : roster) {
-            strings.add(unit.toString());
+            Map<String, String> item = new HashMap<String, String>();
+            item.put("name", unit.toString());
+            item.put("options", unit.getOptions().toString());
+            items.add(item);
         }
 
         ListView lw = (ListView)findViewById(R.id.listView);
-        ArrayAdapter<String> mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, strings);
+        SimpleAdapter mAdapter = new SimpleAdapter(this, items, android.R.layout.simple_list_item_2, new String[]{"name", "options"}, new int[]{android.R.id.text1, android.R.id.text2});
         lw.setAdapter(mAdapter);
     }
 }

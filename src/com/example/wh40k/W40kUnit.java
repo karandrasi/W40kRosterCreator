@@ -11,13 +11,6 @@ import java.util.List;
 
 public class W40kUnit implements Cloneable, Parcelable {
 
-    public W40kUnit() {}
-
-    public W40kUnit(Parcel parcel) {
-        name = parcel.readString();
-        basicCost = parcel.readInt();
-    }
-
     @Override
     public int describeContents() {
         return 0;
@@ -26,7 +19,8 @@ public class W40kUnit implements Cloneable, Parcelable {
     @Override
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
-        parcel.writeInt(getCost());
+        parcel.writeInt(basicCost);
+        parcel.writeList(options);
     }
 
     @Override
@@ -173,7 +167,11 @@ public class W40kUnit implements Cloneable, Parcelable {
     public static final Parcelable.Creator<W40kUnit> CREATOR = new Parcelable.Creator<W40kUnit>(){
         @Override
         public W40kUnit createFromParcel(Parcel parcel) {
-            return new W40kUnit(parcel);
+            W40kUnit unit = new W40kUnit();
+            unit.name = parcel.readString();
+            unit.basicCost = parcel.readInt();
+            parcel.readList(unit.options, W40kOption.class.getClassLoader());
+            return unit;
         }
 
         @Override
@@ -183,6 +181,6 @@ public class W40kUnit implements Cloneable, Parcelable {
     };
 
     public String toString() {
-        return name + ": " + basicCost.toString() + " pts.";
+        return name + ": " + getCost().toString() + " pts.";
     }
 }
