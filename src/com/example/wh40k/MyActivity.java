@@ -60,7 +60,7 @@ public class MyActivity extends Activity {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, points);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        Spinner spinnerPointsList = (Spinner) findViewById(R.id.spinner2);
+        final Spinner spinnerPointsList = (Spinner) findViewById(R.id.spinner2);
         spinnerPointsList.setAdapter(adapter1);
         // заголовок
         spinnerPointsList.setPrompt("Points");
@@ -71,7 +71,8 @@ public class MyActivity extends Activity {
 
                     final InputStream is = getResources().getAssets().open("SpaceMarines.xml");
                     W40kCodex codex = parser.LoadCodex(is);
-                    UnitSelection selection = new UnitSelection(1000);
+                    Integer points = Integer.parseInt(spinnerPointsList.getSelectedItem().toString());
+                    UnitSelection selection = new UnitSelection(points);
                     selection.setMaxHq(2);
                     selection.setMinHq(1);
                     selection.setMaxTroops(6);
@@ -83,7 +84,7 @@ public class MyActivity extends Activity {
                     selection.setMaxLoW(1);
                     List<W40kUnit> roster = selection.selection(codex.getUnits());
                     Intent intent = new Intent(MyActivity.this, Roster.class);
-                    intent.putParcelableArrayListExtra("roster", new ArrayList< W40kUnit>(roster));
+                    intent.putParcelableArrayListExtra("roster", new ArrayList<W40kUnit>(roster));
 
                     startActivity(intent);
                 } catch (Exception e) {

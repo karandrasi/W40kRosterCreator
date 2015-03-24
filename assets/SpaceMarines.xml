@@ -8,6 +8,8 @@
 		</options>
 	</unit>
 	<unit slot="hq" name="Chapter Master" cost="130" value="80" unique="false">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101032_SpaceMarineCommanderNEW02.jpg</image>
+		<description>The Chapter Masters of the Space Marines are warriors without peer, standing resolute when others would waver, advancing without trepidation when other men flee and wisely withdrawing when only a fool would futilely fight on when the odds are stacked against them.</description>
 		<model name="Chapter Master" WS="6" BS="5" S="4" T="4" W="4" I="5" A="4" Ld="10" Sv="3" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1"><!--ranged-->
 			<option name="Boltgun" cost="0" value="-10"/>
@@ -35,6 +37,8 @@
 		</options>
 	</unit>
 	<unit slot="hq" name="Librarian" cost="65" value="60" unique="false">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99070101002_SpaceMarineLibrarianNEW01.jpg</image>
+		<description>Librarians are the psykers of the Space Marines who survive an Adeptus Astartes Chapter's rigorous screening and training to bend the powers of the Warp to their will for the benefit of their fellow Battle-Brothers and in service to the Emperor of Mankind.</description>
 		<model name="Librarian" WS="4" BS="4" S="4" T="4" W="2" I="4" A="2" Ld="10" Sv="3" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1">
 			<option name="Mastery Level 2" cost="25" value="50"/>
@@ -52,6 +56,8 @@
 	<unit slot="troops" name="Tactical Squad" cost="70" value="50" unique="false">
 		<combo name="Rhino" multiplier="1.2"/>
 		<combo name="Drop Pod" multiplier="1.15"/>
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101103_TacticalSquadNEW01.jpg</image>
+		<description>A Tactical Marine is a Space Marine who is equipped to fight using a variety of ranged weapons across a broad range of combat conditions and is part of a ten-Marine unit called a Tactical Squad.</description>
 		<model name="Space Marine" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry" cost="14" value="10" count="4" max="9"/>
 		<model name="Space Marine Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1">
@@ -73,6 +79,8 @@
 		</options>
 	</unit>
 	<unit slot="troops" name="Scout Squad" cost="55" value="30" unique="false">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101036_SpaceMarinesScouts5NEW01.jpg</image>
+		<description>Scout Marines are the newest recruits in a Space Marine Chapter. Their duties are to infiltrate the enemy positions or to fight as lightly armed skirmishers ahead of the rest of the Chapter.</description>
 		<model name="Scout" WS="3" BS="3" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="4" type="Infantry" cost="11" value="6" count="4" max="9"/>
 		<model name="Scout Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="4" type="Infantry (Character)" count="1" max="1"/>
 		<options max="10" onePerModel="true">
@@ -89,13 +97,19 @@
 		</options>
 	</unit>
 	<unit slot="transport" name="Rhino" cost="35" value="10" unique="false">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101063_SpaceMarineRhinoNEW02.jpg</image>
+		<description>The Rhino, also known as the Mars Pattern Rhino, is an Imperial Armoured Personnel Carrier (APC) that is widely used throughout the galaxy by many different factions.</description>
 		<model name="Rhino" BS="4" FA="11" SA="11" RA="10" HP="3" type="Vehicle (Tank, Transport)" count="1" max="1"/>
 	</unit>
 	<unit slot="transport" name="Drop Pod" cost="35" value="10" unique="false">
 		<model name="Drop Pod" BS="4" FA="12" SA="12" RA="12" HP="3" type="Vehicle (Open-Topped, Transport)" count="1" max="1"/>
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101069_DropPodNEW01.jpg</image>
+		<description>Drop Pods are atmospheric assault transports that are primarily used by the Adeptus Astartes and their Chaos Space Marine counterparts for orbital insertion and planetary assaults where achieving tactical surprise is often an important factor.</description>
 	</unit>
 	<unit slot="elite" name="Dreadnought" cost="100" value="50" unique="false">
 		<combo name="Drop Pod" multiplier="2"/>
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101014_SpaceMarineDreadnoughtNEW01.jpg</image>
+		<description>A Dreadnought is a cybernetic combat walker of intermediate size used by the Chapters of the Adeptus Astartes as heavy infantry support for their Space Marine companies.</description>
 		<model name="Dreadnought" WS="4" BS="4" S="6" FA="12" SA="12" RA="10" I="4" A="2" HP="3" type="Vehicle (Walker)" count="1" max="1"/>
 		<options max="1">
 			<option name="Twin-linked Autocannon" cost="5" value="-10"/>
@@ -108,6 +122,34 @@
 		<options max="1">
 			<option name="Missile launcher" cost="10" value="-5"/>
 			<option name="Twin-linked Autocannon" cost="15" value="-1"/>
+		</options>
+	</unit>
+	<unit slot="fast_attack" name="Bike Squad" cost="63" value="60" unique="false">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101102_SpaceMarineBikeSquadNEW01.jpg</image>
+		<description>A Space Marine Bike Squad carries out fast-moving assault missions using 8 one-man Assault Bikes and sometimes with the addition of a single two-man Attack Bike, often operating on intelligence gathered by infiltrating Scout Squads or Land Speeder reconnaissance flights.</description>
+		<model name="Space Marine Biker" WS="4" BS="4" S="4" T="5" W="1" I="4" A="1" Ld="8" Sv="3" type="Bike" cost="21" value="20" count="2" max="7"/>
+		<model name="Biker Sergeant" WS="4" BS="4" S="4" T="5" W="1" I="4" A="2" Ld="9" Sv="3" type="Bike (Character)" count="1" max="1"/>
+		<model name="Attack Bike" WS="4" BS="4" S="4" T="5" W="2" I="4" A="2" Ld="8" Sv="3" type="Bike" cost="40" value="30" count="0" max="1"/>
+		<options max="2">
+			<option name="Flamer" cost="5" value="20"/>
+			<option name="Meltagun" cost="10" value="30"/>
+			<option name="Plasagun" cost="15" value="35"/>
+			<option name="Grav-gun" cost="15" value="30"/>
+		</options>
+		<!--<options max="1" model="Attack Bike">
+			<option name="Multi-melta" cost="10" value="60"/>
+		</options>-->
+	</unit>
+	<unit slot="heavy_support" name="Predator" cost="75" value="50">
+		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101062_SpaceMarinesPredatorNEW01.jpg</image>
+		<description>The Predator is the main battle tank employed by the Space Marines of the Imperium of Man and the Traitor Legions of the Chaos Space Marines.</description>
+		<model name="Predator" BS="4" FA="13" SA="11" RA="10" HP="3" type="Vehicle (Tank, Transport)" count="1" max="1"/>
+		<options max="1">
+			<option name="Twin-linked Lascannon" cost="25" value="60"/>
+		</options>
+		<options max="1">
+			<option name="Heavy bolter sponsons" cost="20" value="20"/>
+			<option name="Lascannon sponsons" cost="40" value="80"/>
 		</options>
 	</unit>
 </units>
