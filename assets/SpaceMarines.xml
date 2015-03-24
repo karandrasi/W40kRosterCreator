@@ -1,0 +1,111 @@
+<units>
+	<unit slot="hq" name="Marneus Calgar" cost="275" value="150" unique="true">
+		<model name="Marneus Calgar" WS="6" BS="5" S="4" T="4" W="4" I="5" A="4" Ld="10" Sv="2" type="Infantry (Character)" count="1" max="1"/>
+		<options max="1">
+			<option name="Armour of Antilochus" cost="10" value="0"/>
+		</options>
+	</unit>
+	<unit slot="hq" name="Chapter Master" cost="130" value="80" unique="false">
+		<model name="Chapter Master" WS="6" BS="5" S="4" T="4" W="4" I="5" A="4" Ld="10" Sv="3" type="Infantry (Character)" count="1" max="1"/>
+		<options max="1"><!--ranged-->
+			<option name="Boltgun" cost="0" value="-10"/>
+			<option name="Storm Bolter" cost="5" value="0"/>
+			<option name="Plasma pistol" cost="15" value="5"/>
+		</options>
+		<options max="1">
+			<option name="Storm Shield" cost="15" value="50"/>
+			<option name="The Shield Eternal" cost="50" value="100"/>
+		</options>
+		<options max="1"><!--melee-->
+			<option name="Power weapon" cost="15" value="20"/>
+			<option name="Relic Blade" cost="25" value="30"/>
+			<option name="Lightning claw" cost="15" value="20"/>
+			<option name="Power fist" cost="25" value="50"/>
+			<option name="Thunder Hammer" cost="30" value="55"/>
+			<option name="The Burning blade" cost="55" value="100"/>
+		</options>
+		<options max="1"><!--armour-->
+			<option name="Artificer Armour" cost="20" value="40"/>
+		</options>
+		<options max="1">
+			<option name="Bike" cost="20" value="100"/>
+			<option name="Jump pack" cost="15" value="30"/>
+		</options>
+	</unit>
+	<unit slot="hq" name="Librarian" cost="65" value="60" unique="false">
+		<model name="Librarian" WS="4" BS="4" S="4" T="4" W="2" I="4" A="2" Ld="10" Sv="3" type="Infantry (Character)" count="1" max="1"/>
+		<options max="1">
+			<option name="Mastery Level 2" cost="25" value="50"/>
+		</options>
+		<options max="1"><!--ranged-->
+			<option name="Boltgun" cost="0" value="-10"/>
+			<option name="Storm Bolter" cost="5" value="0"/>
+			<option name="Plasma pistol" cost="15" value="5"/>
+		</options>
+		<options max="1">
+			<option name="Bike" cost="20" value="40"/>
+			<option name="Jump pack" cost="15" value="30"/>
+		</options>
+	</unit>
+	<unit slot="troops" name="Tactical Squad" cost="70" value="50" unique="false">
+		<combo name="Rhino" multiplier="1.2"/>
+		<combo name="Drop Pod" multiplier="1.15"/>
+		<model name="Space Marine" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry" cost="14" value="10" count="4" max="9"/>
+		<model name="Space Marine Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry (Character)" count="1" max="1"/>
+		<options max="1">
+			<option name="Flamer" cost="5" value="20"/>
+			<option name="Meltagun" cost="10" value="30"/>
+			<option name="Plasagun" cost="15" value="35"/>
+			<option name="Grav-gun" cost="15" value="30"/>
+		</options>
+		<options max="1" requiresModels="10">
+			<option name="Flamer" cost="5" value="15"/>
+			<option name="Meltagun" cost="10" value="25"/>
+			<option name="Plasagun" cost="15" value="30"/>
+			<option name="Grav-gun" cost="15" value="25"/>
+			<option name="Heavy bolter" cost="10" value="35"/>
+			<option name="Multi-melta" cost="10" value="40"/>
+			<option name="Missile launcher" cost="15" value="35"/>
+			<option name="Plasma cannon" cost="15" value="35"/>
+			<option name="Lascannon" cost="20" value="40"/>
+		</options>
+	</unit>
+	<unit slot="troops" name="Scout Squad" cost="55" value="30" unique="false">
+		<model name="Scout" WS="3" BS="3" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="4" type="Infantry" cost="11" value="6" count="4" max="9"/>
+		<model name="Scout Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="4" type="Infantry (Character)" count="1" max="1"/>
+		<options max="10" onePerModel="true">
+			<option name="Shotgun" cost="0" value="1"/>
+			<option name="CCW" cost="0" value="0"/>
+			<option name="Sniper rifle" cost="1" value="5"/>
+		</options>
+		<options max="1">
+			<option name="Camo cloaks" cost="2" value="5" perModel="true"/>
+		</options>
+		<options max="1">
+			<option name="Heavy bolter" cost="8" value="20"/>
+			<option name="Missile launcher" cost="15" value="25"/>
+		</options>
+	</unit>
+	<unit slot="transport" name="Rhino" cost="35" value="10" unique="false">
+		<model name="Rhino" BS="4" FA="11" SA="11" RA="10" HP="3" type="Vehicle (Tank, Transport)" count="1" max="1"/>
+	</unit>
+	<unit slot="transport" name="Drop Pod" cost="35" value="10" unique="false">
+		<model name="Drop Pod" BS="4" FA="12" SA="12" RA="12" HP="3" type="Vehicle (Open-Topped, Transport)" count="1" max="1"/>
+	</unit>
+	<unit slot="elite" name="Dreadnought" cost="100" value="50" unique="false">
+		<combo name="Drop Pod" multiplier="2"/>
+		<model name="Dreadnought" WS="4" BS="4" S="6" FA="12" SA="12" RA="10" I="4" A="2" HP="3" type="Vehicle (Walker)" count="1" max="1"/>
+		<options max="1">
+			<option name="Twin-linked Autocannon" cost="5" value="-10"/>
+			<option name="Twin-linked Heavy bolter" cost="5" value="-15"/>
+			<option name="Twin-linked Heavy flamer" cost="5" value="0"/>
+			<option name="Plasma cannon" cost="10" value="-5"/>
+			<option name="Assault cannon" cost="20" value="5"/>
+			<option name="Twin-linked Lascannon" cost="25" value="10"/>
+		</options>
+		<options max="1">
+			<option name="Missile launcher" cost="10" value="-5"/>
+			<option name="Twin-linked Autocannon" cost="15" value="-1"/>
+		</options>
+	</unit>
+</units>

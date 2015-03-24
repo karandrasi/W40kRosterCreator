@@ -1,0 +1,188 @@
+package com.example.wh40k;
+import android.os.Parcel;
+import android.os.Parcelable;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Urgak_000 on 21.03.2015.
+ */
+
+public class W40kUnit implements Cloneable, Parcelable {
+
+    public W40kUnit() {}
+
+    public W40kUnit(Parcel parcel) {
+        name = parcel.readString();
+        basicCost = parcel.readInt();
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(name);
+        parcel.writeInt(getCost());
+    }
+
+    @Override
+    public W40kUnit clone() {
+        try {
+            W40kUnit clone = (W40kUnit)super.clone();
+            clone.options = new ArrayList<W40kOption>(this.options);
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+        return new W40kUnit();
+    }
+
+    public W40kUnitSlot getSlot() {
+        return slot;
+    }
+
+    public void setSlot(final W40kUnitSlot slot) {
+        this.slot = slot;
+    }
+
+    public void setSlot(final String slot) {
+        if(slot.equals("hq")) {
+            this.slot = W40kUnitSlot.HQ;
+        } else if(slot.equals("troops")) {
+            this.slot = W40kUnitSlot.TROOPS;
+        } if(slot.equals("transport")) {
+            this.slot = W40kUnitSlot.TRANSPORT;
+        } if(slot.equals("elite")) {
+            this.slot = W40kUnitSlot.ELITE;
+        } if(slot.equals("fast_attack")) {
+            this.slot = W40kUnitSlot.FAST_ATTACK;
+        } if(slot.equals("heavy_support")) {
+            this.slot = W40kUnitSlot.HEAVY_SUPPORT;
+        } if(slot.equals("lord_of_war")) {
+            this.slot = W40kUnitSlot.LORD_OF_WAR;
+        } if(slot.equals("fortification")) {
+            this.slot = W40kUnitSlot.FORTIFICATION;
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getBasicCost() {
+        return basicCost;
+    }
+
+    public void setBasicCost(Integer basicCost) {
+        this.basicCost = basicCost;
+    }
+
+    public Boolean getUnique() {
+        return unique;
+    }
+
+    public void setUnique(Boolean unique) {
+        this.unique = unique;
+    }
+
+    public Integer getBasicValue() {
+        return basicValue;
+    }
+
+    public void setBasicValue(Integer basicValue) {
+        this.basicValue = basicValue;
+    }
+
+    public List<W40kModel> getModels() {
+        return models;
+    }
+
+    public void addModel(W40kModel model) {
+        models.add(model);
+    }
+
+    public List<W40kOptionSlot> getOptionSlots() {
+        return optionSlots;
+    }
+
+    public void addOptionSlot(W40kOptionSlot optionSlot) {
+        optionSlots.add(optionSlot);
+    }
+
+    public double getBasicEfficiency() {
+        return (basicCost != 0) ? basicValue / basicCost : basicValue / 0.1;
+    }
+
+    public List<W40kOption> getOptions() {
+        return options;
+    }
+
+    public void addOption(W40kOption option) {
+        this.options.add(option);
+    }
+
+    public Integer getCost() {
+        Integer cost = this.basicCost;
+        for(W40kOption option : options) {
+            cost += option.getCost();
+        }
+        return cost;
+    }
+
+    public Integer getValue() {
+        Integer value = this.basicValue;
+        for(W40kOption option : options) {
+            value += option.getValue();
+        }
+        return value;
+    }
+
+    public double getEfficiency() {
+        return (double)getValue() / ((getCost() == 0)? 0.1 : (double)getCost());
+    }
+
+    public static enum W40kUnitSlot {
+        HQ,
+        TROOPS,
+        TRANSPORT,
+        ELITE,
+        FAST_ATTACK,
+        HEAVY_SUPPORT,
+        LORD_OF_WAR,
+        FORTIFICATION,
+    }
+
+    private W40kUnitSlot slot;
+    private String name;
+    private Integer basicCost;
+    private Integer basicValue;
+    private Boolean unique;
+    private List<W40kModel> models = new ArrayList<W40kModel>();
+    private List<W40kOptionSlot> optionSlots = new ArrayList<W40kOptionSlot>();
+    private List<W40kCombo> combos = new ArrayList<W40kCombo>();
+    private List<W40kOption> options = new ArrayList<W40kOption>();
+
+    public static final Parcelable.Creator<W40kUnit> CREATOR = new Parcelable.Creator<W40kUnit>(){
+        @Override
+        public W40kUnit createFromParcel(Parcel parcel) {
+            return new W40kUnit(parcel);
+        }
+
+        @Override
+        public W40kUnit[] newArray(int i) {
+            return new W40kUnit[i];
+        }
+    };
+
+    public String toString() {
+        return name + ": " + basicCost.toString() + " pts.";
+    }
+}
