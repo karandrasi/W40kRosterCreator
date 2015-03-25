@@ -60,13 +60,13 @@
 		<description>A Tactical Marine is a Space Marine who is equipped to fight using a variety of ranged weapons across a broad range of combat conditions and is part of a ten-Marine unit called a Tactical Squad.</description>
 		<model name="Space Marine" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry" cost="14" value="10" count="4" max="9"/>
 		<model name="Space Marine Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry (Character)" count="1" max="1"/>
-		<options max="1">
+		<options max="1" model="Space Marine">
 			<option name="Flamer" cost="5" value="20"/>
 			<option name="Meltagun" cost="10" value="30"/>
 			<option name="Plasagun" cost="15" value="35"/>
 			<option name="Grav-gun" cost="15" value="30"/>
 		</options>
-		<options max="1" requiresModels="10">
+		<options max="1" requiresModels="10" model="Space Marine">
 			<option name="Flamer" cost="5" value="15"/>
 			<option name="Meltagun" cost="10" value="25"/>
 			<option name="Plasagun" cost="15" value="30"/>

@@ -4,6 +4,11 @@ package com.example.wh40k;
  * Created by Urgak_000 on 23.03.2015.
  */
 public class W40kCombo {
+    public W40kCombo(W40kUnit unit, Float multiplier) {
+        this.unit = unit;
+        this.multiplier = multiplier;
+    }
+
     private W40kUnit unit;
     private Float multiplier;
 

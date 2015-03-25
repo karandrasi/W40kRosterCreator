@@ -10,6 +10,7 @@ public class W40kOptionSlot {
     private Integer max;
     private Boolean onePerModel;
     private Integer modelsRequired;
+    private W40kModel model;
 
     public final List<W40kOption> getOptions() {
         return options;
@@ -42,4 +43,8 @@ public class W40kOptionSlot {
     public void setModelsRequired(Integer modelsRequired) {
         this.modelsRequired = modelsRequired;
     }
+
+    public W40kModel getModel() { return model; }
+
+    public void setModel(W40kModel model) { this.model = model; }
 }

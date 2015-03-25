@@ -7,9 +7,7 @@ import android.os.Parcelable;
  * Created by Urgak_000 on 21.03.2015.
  */
 public class W40kOption implements Parcelable {
-    private String name;
-
-    @Override
+     @Override
     public int describeContents() {
         return 0;
     }
@@ -20,6 +18,7 @@ public class W40kOption implements Parcelable {
         parcel.writeInt(cost);
     }
 
+    private String name;
     private Integer cost;
     private Integer value;
 

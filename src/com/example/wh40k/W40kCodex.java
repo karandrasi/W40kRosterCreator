@@ -21,4 +21,13 @@ public class W40kCodex {
     public void addUnit(W40kUnit unit) {
         units.add(unit);
     }
+
+    public W40kUnit getUnitByName(String name) {
+        for(W40kUnit unit : units) {
+            if(unit.getName().equals(name)) {
+                return unit;
+            }
+        }
+        return new W40kUnit();
+    }
 }

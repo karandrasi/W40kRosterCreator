@@ -23,6 +23,7 @@ public class W40kUnit implements Cloneable, Parcelable {
         parcel.writeSerializable(slot);
         parcel.writeString(imagePath);
         parcel.writeString(description);
+        parcel.writeInt(unique?1:0);
         parcel.writeList(options);
         parcel.writeList(models);
     }
@@ -167,6 +168,21 @@ public class W40kUnit implements Cloneable, Parcelable {
         this.description = description;
     }
 
+    public List<W40kCombo> getCombos() {return combos;}
+
+    public void addCombo(W40kUnit unit, Float multiplier) {
+        combos.add(new W40kCombo(unit, multiplier));
+    }
+
+    public W40kModel getModelByName(String name) {
+        for(W40kModel model : models) {
+            if(model.getName().equals(name)) {
+                return model;
+            }
+        }
+        return new W40kModel();
+    }
+
     public static enum W40kUnitSlot {
         HQ,
         TROOPS,
@@ -199,6 +215,7 @@ public class W40kUnit implements Cloneable, Parcelable {
             unit.slot = (W40kUnitSlot)parcel.readSerializable();
             unit.imagePath = parcel.readString();
             unit.description = parcel.readString();
+            unit.unique = (parcel.readInt() == 1);
             parcel.readList(unit.options, W40kOption.class.getClassLoader());
             parcel.readList(unit.models, W40kModel.class.getClassLoader());
             return unit;
