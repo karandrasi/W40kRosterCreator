@@ -3,10 +3,9 @@ package com.example.wh40k;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.SimpleCursorAdapter;
+import android.view.View;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,5 +33,18 @@ public class Roster extends Activity {
         ListView lw = (ListView)findViewById(R.id.listView);
         SimpleAdapter mAdapter = new SimpleAdapter(this, items, android.R.layout.simple_list_item_2, new String[]{"name", "options"}, new int[]{android.R.id.text1, android.R.id.text2});
         lw.setAdapter(mAdapter);
+        lw.setOnItemClickListener(new OnItemClickListener(){
+
+
+            @Override
+            public void onItemClick(AdapterView<?>adapter,View v, int position){
+
+                ItemClicked item = adapter.getItem(position);
+                Intent intent = new Intent(Roster.this,infoUnit.class);
+                startActivity(intent);
+
+            }
+
+        });
     }
 }
