@@ -21,6 +21,8 @@ public class W40kUnit implements Cloneable, Parcelable {
         parcel.writeString(name);
         parcel.writeInt(basicCost);
         parcel.writeSerializable(slot);
+        parcel.writeString(imagePath);
+        parcel.writeString(description);
         parcel.writeList(options);
         parcel.writeList(models);
     }
@@ -195,6 +197,8 @@ public class W40kUnit implements Cloneable, Parcelable {
             unit.name = parcel.readString();
             unit.basicCost = parcel.readInt();
             unit.slot = (W40kUnitSlot)parcel.readSerializable();
+            unit.imagePath = parcel.readString();
+            unit.description = parcel.readString();
             parcel.readList(unit.options, W40kOption.class.getClassLoader());
             parcel.readList(unit.models, W40kModel.class.getClassLoader());
             return unit;
