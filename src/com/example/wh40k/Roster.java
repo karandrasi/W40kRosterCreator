@@ -16,12 +16,16 @@ import java.util.Map;
  * Created by Urgak_000 on 23.03.2015.
  */
 public class Roster extends Activity {
+
+    private List<W40kUnit> units;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.roster);
 
         List<W40kUnit> roster = getIntent().getParcelableArrayListExtra("roster");
+        this.units = roster;
         List<Map<String, String>> items = new ArrayList<Map<String, String>>();
         for(W40kUnit unit : roster) {
             Map<String, String> item = new HashMap<String, String>();
@@ -33,16 +37,13 @@ public class Roster extends Activity {
         ListView lw = (ListView)findViewById(R.id.listView);
         SimpleAdapter mAdapter = new SimpleAdapter(this, items, android.R.layout.simple_list_item_2, new String[]{"name", "options"}, new int[]{android.R.id.text1, android.R.id.text2});
         lw.setAdapter(mAdapter);
-        lw.setOnItemClickListener(new OnItemClickListener(){
-
-
+        lw.setOnItemClickListener(new OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?>adapter,View v, int position){
-
-                ItemClicked item = adapter.getItem(position);
-                Intent intent = new Intent(Roster.this,infoUnit.class);
+            public void onItemClick(AdapterView<?> adapter, View v, int position, long id) {
+                W40kUnit unit = units.get(position);
+                Intent intent = new Intent(Roster.this, infoUnit.class);
+                intent.putExtra("unit", unit);
                 startActivity(intent);
-
             }
 
         });
