@@ -4,12 +4,10 @@
       tools:context="com.example.wh40k.Roster">
     <item android:id="@+id/action_settings"
           android:title="@string/action_settings"
-          android:orderInCategory="100">
-    </item>
+          android:orderInCategory="100"/>
     <item
             android:id="@+id/action_note"
             android:orderInCategory="100"
-            app:showAsAction="never"
             android:title="@string/action_note" />
 
 </menu>

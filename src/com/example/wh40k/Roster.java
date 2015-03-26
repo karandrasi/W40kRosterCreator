@@ -66,7 +66,7 @@ public class Roster extends Activity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_note) {
             Intent intent = new Intent(Roster.this, note.class);
             startActivity(intent);
             return true;
