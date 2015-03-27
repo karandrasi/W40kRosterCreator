@@ -9,8 +9,8 @@ public class W40kOptionSlot {
     private List<W40kOption> options = new ArrayList<W40kOption>();
     private Integer max;
     private Boolean onePerModel;
-    private Integer modelsRequired;
-    private W40kModel model;
+    private Integer upgradesPerModels;
+    private W40kModel model = null;
 
     public final List<W40kOption> getOptions() {
         return options;
@@ -36,15 +36,15 @@ public class W40kOptionSlot {
         this.onePerModel = onePerModel;
     }
 
-    public Integer getModelsRequired() {
-        return modelsRequired;
-    }
-
-    public void setModelsRequired(Integer modelsRequired) {
-        this.modelsRequired = modelsRequired;
-    }
-
     public W40kModel getModel() { return model; }
 
     public void setModel(W40kModel model) { this.model = model; }
+
+    public Integer getUpgradesPerModels() {
+        return upgradesPerModels;
+    }
+
+    public void setUpgradesPerModels(Integer upgradesPerModels) {
+        this.upgradesPerModels = upgradesPerModels;
+    }
 }

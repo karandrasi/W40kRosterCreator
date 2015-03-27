@@ -112,7 +112,7 @@ public class UnitSelection {
             W40kUnit cloneUnit = unit.clone();
             for(Map.Entry<W40kOptionSlot, W40kOption> entry : bestOptions.entrySet()) {
                 W40kOption option = entry.getValue();
-                for(int i = 0; i < entry.getKey().getMax(); i++) {
+                for(int i = 0; i < Math.min(entry.getKey().getMax(), unit.getNumberOfModels()); i++) {
                     cloneUnit.addOption(option);
                 }
                 fullRoster.add(cloneUnit);
@@ -186,26 +186,32 @@ public class UnitSelection {
             W40kUnit unit = fullRoster.get(i);
             W40kUnit.W40kUnitSlot slot = unit.getSlot();
             if(cur.get(slot) < max.get(slot)) {
-                /*if(cur.get(slot) > 0) {
-                    for(int j = 0; j < result.size(); j++) {
-                        if(result.get(j).getSlot() == slot &&
+                Boolean isReplaced = false;
+                if (cur.get(slot) > 0) {
+                    for (int j = 0; j < result.size(); j++) {
+                        if (result.get(j).getSlot() == slot &&
                                 fullRoster.get(i).getEfficiency() > result.get(j).getEfficiency() &&
                                 sum + (fullRoster.get(i).getCost() - result.get(j).getCost()) <= maxCost) {
                             result.set(j, fullRoster.get(i));
                             sum += (fullRoster.get(i).getCost() - result.get(j).getCost());
-                            if(!fullRoster.get(i).getUnique()) {
+                            if (!fullRoster.get(i).getUnique()) {
                                 i--;
                             }
+                            isReplaced = true;
                             break;
                         }
                     }
-                } else {
-                    */if(sum + unit.getCost() < maxCost) {
-                        result.add(unit);
-                        sum += unit.getCost();
-                        cur.put(slot, cur.get(slot) + 1);
-                        if(!unit.getUnique()) i--;
-                    //}
+                }
+                if (isReplaced) {
+                    continue;
+                }
+                if (sum + unit.getCost() < maxCost) {
+                    result.add(unit);
+                    sum += unit.getCost();
+                    cur.put(slot, cur.get(slot) + 1);
+                    if (!unit.getUnique()) {
+                        i--;
+                    }
                 }
             }
         }

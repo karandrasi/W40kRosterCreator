@@ -180,7 +180,15 @@ public class W40kUnit implements Cloneable, Parcelable {
                 return model;
             }
         }
-        return new W40kModel();
+        return null;
+    }
+
+    public Integer getNumberOfModels() {
+        Integer num = 0;
+        for(W40kModel model : models) {
+            num += model.getDefaultCount();
+        }
+        return num;
     }
 
     public static enum W40kUnitSlot {

@@ -136,9 +136,9 @@
 			<option name="Plasagun" cost="15" value="35"/>
 			<option name="Grav-gun" cost="15" value="30"/>
 		</options>
-		<!--<options max="1" model="Attack Bike">
+		<options max="1" model="Attack Bike">
 			<option name="Multi-melta" cost="10" value="60"/>
-		</options>-->
+		</options>
 	</unit>
 	<unit slot="heavy_support" name="Predator" cost="75" value="50">
 		<image>http://www.games-workshop.com/resources/catalog/product/600x620/99120101062_SpaceMarinesPredatorNEW01.jpg</image>

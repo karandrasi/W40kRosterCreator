@@ -109,7 +109,7 @@ public class CodexXMLParser {
         W40kOptionSlot slot = new W40kOptionSlot();
         slot.setMax(Integer.parseInt(parser.getAttributeValue(null, "max")));
         String requredModels = parser.getAttributeValue(null, "requiresModels");
-        slot.setModelsRequired((requredModels != null) ? Integer.parseInt(requredModels) : 0);
+        slot.setUpgradesPerModels((requredModels != null) ? Integer.parseInt(requredModels) : 0);
         String onePerModel = parser.getAttributeValue(null, "onePerModel");
         slot.setOnePerModel((onePerModel != null) ? Boolean.parseBoolean(onePerModel) : false);
         while (parser.next() != XmlPullParser.END_TAG) {
