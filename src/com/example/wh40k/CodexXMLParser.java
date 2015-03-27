@@ -121,6 +121,7 @@ public class CodexXMLParser {
                 option.setName(parser.getAttributeValue(null, "name"));
                 option.setCost(Integer.parseInt(parser.getAttributeValue(null, "cost")));
                 option.setValue(Integer.parseInt(parser.getAttributeValue(null, "value")));
+                option.setDescription(parser.getAttributeValue(null, "description"));
                 slot.addOption(option);
                 parser.next();
                 parser.require(XmlPullParser.END_TAG, "", "option");

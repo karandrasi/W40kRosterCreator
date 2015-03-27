@@ -7,13 +7,16 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.SimpleAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Dertkaes on 3/25/2015.
@@ -32,7 +35,14 @@ public class infoUnit extends Activity {
         TextView description = (TextView)findViewById(R.id.textView4);
         description.setText(unit.getDescription());
         List<W40kOption> options = unit.getOptions();
-        ArrayAdapter<W40kOption> adapter = new ArrayAdapter<W40kOption>(this, android.R.layout.simple_list_item_1, options);
+        List<Map<String, String>> items = new ArrayList<Map<String, String>>();
+        for(W40kOption option : options) {
+            Map<String, String> item = new HashMap<String, String>();
+            item.put("name", option.getName());
+            item.put("description", option.getDescription());
+            items.add(item);
+        }
+        SimpleAdapter adapter = new SimpleAdapter(this, items, android.R.layout.simple_list_item_2, new String[]{"name", "description"}, new int[]{android.R.id.text1, android.R.id.text2});
         upgrades.setAdapter(adapter);
         upgrades.requestLayout();
         new DownloadImageTask((ImageView)findViewById(R.id.imageView)).execute(unit.getImagePath());

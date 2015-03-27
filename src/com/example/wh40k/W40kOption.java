@@ -16,11 +16,13 @@ public class W40kOption implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeInt(cost);
+        parcel.writeString(getDescription());
     }
 
     private String name;
     private Integer cost;
     private Integer value;
+    private String description;
 
     public String getName() {
         return name;
@@ -56,6 +58,7 @@ public class W40kOption implements Parcelable {
             W40kOption option = new W40kOption();
             option.name = parcel.readString();
             option.cost = parcel.readInt();
+            option.setDescription(parcel.readString());
             return option;
         }
 
@@ -64,4 +67,12 @@ public class W40kOption implements Parcelable {
             return new W40kOption[i];
         }
     };
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }

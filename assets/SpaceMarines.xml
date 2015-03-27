@@ -4,7 +4,7 @@
 		<description>Marneus Augustus Calgar is the current Chapter Master of the Ultramarines Space Marines Chapter and the Lord of Macragge, capital world of the Realm of Ultramar in the Eastern Fringes of the galaxy.</description>
 		<model name="Marneus Calgar" WS="6" BS="5" S="4" T="4" W="4" I="5" A="4" Ld="10" Sv="2" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1">
-			<option name="Armour of Antilochus" cost="10" value="0"/>
+			<option name="Armour of Antilochus" cost="10" value="0" description="Terminator armour that doesn't prevent sweeping advances and has Teleport homer"/>
 		</options>
 	</unit>
 	<unit slot="hq" name="Chapter Master" cost="130" value="80" unique="false">
@@ -12,28 +12,28 @@
 		<description>The Chapter Masters of the Space Marines are warriors without peer, standing resolute when others would waver, advancing without trepidation when other men flee and wisely withdrawing when only a fool would futilely fight on when the odds are stacked against them.</description>
 		<model name="Chapter Master" WS="6" BS="5" S="4" T="4" W="4" I="5" A="4" Ld="10" Sv="3" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1"><!--ranged-->
-			<option name="Boltgun" cost="0" value="-10"/>
-			<option name="Storm Bolter" cost="5" value="0"/>
-			<option name="Plasma pistol" cost="15" value="5"/>
+			<option name="Boltgun" cost="0" value="-10" description="Range: 24, S4, AP5, Rapid Fire"/>
+			<option name="Storm Bolter" cost="5" value="0" description="Range: 24, S4, AP5, Assault 2"/>
+			<option name="Plasma pistol" cost="15" value="5" description="Range: 12, S7, AP2, Pistol"/>
 		</options>
 		<options max="1">
-			<option name="Storm Shield" cost="15" value="50"/>
-			<option name="The Shield Eternal" cost="50" value="100"/>
+			<option name="Storm Shield" cost="15" value="50" description="Grants 3+ invulnurable save"/>
+			<option name="The Shield Eternal" cost="50" value="100" description="Grants 3+ invulnurable save and Eternal Warrior special rule"/>
 		</options>
 		<options max="1"><!--melee-->
-			<option name="Power weapon" cost="15" value="20"/>
-			<option name="Relic Blade" cost="25" value="30"/>
-			<option name="Lightning claw" cost="15" value="20"/>
-			<option name="Power fist" cost="25" value="50"/>
-			<option name="Thunder Hammer" cost="30" value="55"/>
-			<option name="The Burning blade" cost="55" value="100"/>
+			<option name="Power weapon" cost="15" value="20" description="S: User, AP3, Melee OR S:+1, AP2, Melee, Unwieldly"/>
+			<option name="Relic Blade" cost="25" value="30" description="S: +2, AP3, Melee, Two-handed"/>
+			<option name="Lightning claw" cost="15" value="20" description="S: User, AP3, Melee, Shred"/>
+			<option name="Power fist" cost="25" value="50" description="S: *2, AP2, Melee, Unwieldly, Specialist weapon"/>
+			<option name="Thunder Hammer" cost="30" value="55"  description="S: *2, AP2, Melee, Unwieldly, Specialist weapon, Concussive"/>
+			<option name="The Burning blade" cost="55" value="100" description="S: +3, AP2, Melee, Blind, Incandescent"/>
 		</options>
 		<options max="1"><!--armour-->
-			<option name="Artificer Armour" cost="20" value="40"/>
+			<option name="Artificer Armour" cost="20" value="40" description="Grants 2+ armour save"/>
 		</options>
 		<options max="1">
-			<option name="Bike" cost="20" value="100"/>
-			<option name="Jump pack" cost="15" value="30"/>
+			<option name="Bike" cost="20" value="100" description="Grants bike unit type"/>
+			<option name="Jump pack" cost="15" value="30" description="Grants Jump Infantry unit type"/>
 		</options>
 	</unit>
 	<unit slot="hq" name="Librarian" cost="65" value="60" unique="false">
@@ -44,13 +44,13 @@
 			<option name="Mastery Level 2" cost="25" value="50"/>
 		</options>
 		<options max="1"><!--ranged-->
-			<option name="Boltgun" cost="0" value="-10"/>
-			<option name="Storm Bolter" cost="5" value="0"/>
-			<option name="Plasma pistol" cost="15" value="5"/>
+			<option name="Boltgun" cost="0" value="-10" description="Range: 24, S4, AP5, Rapid Fire"/>
+			<option name="Storm Bolter" cost="5" value="0" description="Range: 24, S4, AP5, Assault 2"/>
+			<option name="Plasma pistol" cost="15" value="5" description="Range: 12, S7, AP2, Pistol"/>
 		</options>
 		<options max="1">
-			<option name="Bike" cost="20" value="40"/>
-			<option name="Jump pack" cost="15" value="30"/>
+			<option name="Bike" cost="20" value="40" description="Grants bike unit type"/>
+			<option name="Jump pack" cost="15" value="30" description="Grants Jump Infantry unit type"/>
 		</options>
 	</unit>
 	<unit slot="troops" name="Tactical Squad" cost="70" value="50" unique="false">
@@ -61,21 +61,21 @@
 		<model name="Space Marine" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry" cost="14" value="10" count="4" max="9"/>
 		<model name="Space Marine Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="3" type="Infantry (Character)" count="1" max="1"/>
 		<options max="1" model="Space Marine">
-			<option name="Flamer" cost="5" value="20"/>
-			<option name="Meltagun" cost="10" value="30"/>
-			<option name="Plasagun" cost="15" value="35"/>
-			<option name="Grav-gun" cost="15" value="30"/>
+			<option name="Flamer" cost="5" value="20" description="Range: Template, S4, AP5, Assault 1"/>
+			<option name="Meltagun" cost="10" value="30" description="Range: 12, S8, AP1, Assault 1, Melta"/>
+			<option name="Plasagun" cost="15" value="35" description="Range: 24, S7, AP2, Rapid Fire, Gets hot"/>
+			<option name="Grav-gun" cost="15" value="30" description="Range: 18, S*, AP2, Salvo 2/3, Concussive, Graviton"/>
 		</options>
 		<options max="1" requiresModels="10" model="Space Marine">
-			<option name="Flamer" cost="5" value="15"/>
-			<option name="Meltagun" cost="10" value="25"/>
-			<option name="Plasagun" cost="15" value="30"/>
-			<option name="Grav-gun" cost="15" value="25"/>
-			<option name="Heavy bolter" cost="10" value="35"/>
-			<option name="Multi-melta" cost="10" value="40"/>
-			<option name="Missile launcher" cost="15" value="35"/>
-			<option name="Plasma cannon" cost="15" value="35"/>
-			<option name="Lascannon" cost="20" value="40"/>
+			<option name="Flamer" cost="5" value="20" description="Range: Template, S4, AP5, Assault 1"/>
+			<option name="Meltagun" cost="10" value="30" description="Range: 12, S8, AP1, Assault 1, Melta"/>
+			<option name="Plasagun" cost="15" value="35" description="Range: 24, S7, AP2, Rapid Fire, Gets hot"/>
+			<option name="Grav-gun" cost="15" value="30" description="Range: 18, S*, AP2, Salvo 2/3, Concussive, Graviton"/>
+			<option name="Heavy bolter" cost="10" value="35" description="Range: 36, S5, AP4, Heavy 3"/>
+			<option name="Multi-melta" cost="10" value="40" description="Range: 24, S8, AP1, Heavy 1"/>
+			<option name="Missile launcher" cost="15" value="35" description="Range: 48, S8, AP3, Heavy 1 OR Range: 48, S4, AP6, Heavy 1, Blast"/>
+			<option name="Plasma cannon" cost="15" value="35" description="Range: 36, S7, AP2, Heavy 1, Blast"/>
+			<option name="Lascannon" cost="20" value="40" description="Range: 48, S9, AP2, Heavy1"/>
 		</options>
 	</unit>
 	<unit slot="troops" name="Scout Squad" cost="55" value="30" unique="false">
@@ -84,16 +84,16 @@
 		<model name="Scout" WS="3" BS="3" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="4" type="Infantry" cost="11" value="6" count="4" max="9"/>
 		<model name="Scout Sergeant" WS="4" BS="4" S="4" T="4" W="1" I="4" A="1" Ld="8" Sv="4" type="Infantry (Character)" count="1" max="1"/>
 		<options max="10" onePerModel="true">
-			<option name="Shotgun" cost="0" value="1"/>
-			<option name="CCW" cost="0" value="0"/>
-			<option name="Sniper rifle" cost="1" value="5"/>
+			<option name="Shotgun" cost="0" value="1" description="Range: 12, S4, AP-, Assault 2"/>
+			<option name="CCW" cost="0" value="0" description="Additional attack at close combat"/>
+			<option name="Sniper rifle" cost="1" value="5" description="Range: 36, S*, AP6, Heavy1, Sniper"/>
 		</options>
 		<options max="1">
-			<option name="Camo cloaks" cost="2" value="5" perModel="true"/>
+			<option name="Camo cloaks" cost="2" value="5" perModel="true" description="Gives +1 cover save"/>
 		</options>
 		<options max="1">
-			<option name="Heavy bolter" cost="8" value="20"/>
-			<option name="Missile launcher" cost="15" value="25"/>
+			<option name="Heavy bolter" cost="8" value="20" description="Range: 36, S5, AP4, Heavy 3"/>
+			<option name="Missile launcher" cost="15" value="25" description="Range: 48, S8, AP3, Heavy 1 OR Range: 48, S4, AP6, Heavy 1, Blast"/>
 		</options>
 	</unit>
 	<unit slot="transport" name="Rhino" cost="35" value="10" unique="false">
@@ -112,16 +112,16 @@
 		<description>A Dreadnought is a cybernetic combat walker of intermediate size used by the Chapters of the Adeptus Astartes as heavy infantry support for their Space Marine companies.</description>
 		<model name="Dreadnought" WS="4" BS="4" S="6" FA="12" SA="12" RA="10" I="4" A="2" HP="3" type="Vehicle (Walker)" count="1" max="1"/>
 		<options max="1">
-			<option name="Twin-linked Autocannon" cost="5" value="-10"/>
-			<option name="Twin-linked Heavy bolter" cost="5" value="-15"/>
-			<option name="Twin-linked Heavy flamer" cost="5" value="0"/>
-			<option name="Plasma cannon" cost="10" value="-5"/>
-			<option name="Assault cannon" cost="20" value="5"/>
-			<option name="Twin-linked Lascannon" cost="25" value="10"/>
+			<option name="Twin-linked Autocannon" cost="5" value="-10" description="Range: 48, S7, AP4, Heavy 2, Twin-linked"/>
+			<option name="Twin-linked Heavy bolter" cost="5" value="-15" description="Range: 36, S5, AP4, Heavy 3, Twin-linked"/>
+			<option name="Twin-linked Heavy flamer" cost="5" value="0" description="Range: Template, S5, AP4, Heavy1, Twin-linked"/>
+			<option name="Plasma cannon" cost="10" value="-5" description="Range: 36, S7, AP2, Heavy 1, Blast"/>
+			<option name="Assault cannon" cost="20" value="5" description="Range: 24, S6, AP4, Heavy4, Rending"/>
+			<option name="Twin-linked Lascannon" cost="25" value="10" description="Range: 48, S9, AP2, Heavy 1, Twin-linked"/>
 		</options>
 		<options max="1">
-			<option name="Missile launcher" cost="10" value="-5"/>
-			<option name="Twin-linked Autocannon" cost="15" value="-1"/>
+			<option name="Missile launcher" cost="10" value="-5" description="Range: 48, S8, AP3, Heavy 1 OR Range: 48, S4, AP6, Heavy 1, Blast"/>
+			<option name="Twin-linked Autocannon" cost="15" value="-1" description="Range: 48, S7, AP4, Heavy 2, Twin-linked"/>
 		</options>
 	</unit>
 	<unit slot="fast_attack" name="Bike Squad" cost="63" value="60" unique="false">
@@ -131,13 +131,13 @@
 		<model name="Biker Sergeant" WS="4" BS="4" S="4" T="5" W="1" I="4" A="2" Ld="9" Sv="3" type="Bike (Character)" count="1" max="1"/>
 		<model name="Attack Bike" WS="4" BS="4" S="4" T="5" W="2" I="4" A="2" Ld="8" Sv="3" type="Bike" cost="40" value="30" count="0" max="1"/>
 		<options max="2">
-			<option name="Flamer" cost="5" value="20"/>
-			<option name="Meltagun" cost="10" value="30"/>
-			<option name="Plasagun" cost="15" value="35"/>
-			<option name="Grav-gun" cost="15" value="30"/>
+			<option name="Flamer" cost="5" value="20" description="Range: Template, S4, AP5, Assault 1"/>
+			<option name="Meltagun" cost="10" value="30" description="Range: 12, S8, AP1, Assault 1, Melta"/>
+			<option name="Plasagun" cost="15" value="35" description="Range: 24, S7, AP2, Rapid Fire, Gets hot"/>
+			<option name="Grav-gun" cost="15" value="30" description="Range: 18, S*, AP2, Salvo 2/3, Concussive, Graviton"/>
 		</options>
 		<options max="1" model="Attack Bike">
-			<option name="Multi-melta" cost="10" value="60"/>
+			<option name="Multi-melta" cost="10" value="60" description="Range: 24, S8, AP1, Heavy 1"/>
 		</options>
 	</unit>
 	<unit slot="heavy_support" name="Predator" cost="75" value="50">
@@ -145,11 +145,11 @@
 		<description>The Predator is the main battle tank employed by the Space Marines of the Imperium of Man and the Traitor Legions of the Chaos Space Marines.</description>
 		<model name="Predator" BS="4" FA="13" SA="11" RA="10" HP="3" type="Vehicle (Tank, Transport)" count="1" max="1"/>
 		<options max="1">
-			<option name="Twin-linked Lascannon" cost="25" value="60"/>
+			<option name="Twin-linked Lascannon" cost="25" value="60" description="Range: 48, S9, AP2, Heavy 1, Twin-linked"/>
 		</options>
 		<options max="1">
-			<option name="Heavy bolter sponsons" cost="20" value="20"/>
-			<option name="Lascannon sponsons" cost="40" value="80"/>
+			<option name="Heavy bolter sponsons" cost="20" value="20" description="2 sponson mounted heavy bolters: Range: 36, S5, AP4, Heavy3"/>
+			<option name="Lascannon sponsons" cost="40" value="80" description="2 sponson mounted lasscannons: Range: 48, S9, AP2, Heavy 1"/>
 		</options>
 	</unit>
 </units>
